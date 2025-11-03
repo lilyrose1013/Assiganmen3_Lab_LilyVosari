@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: "Syne Mono", monospace;
+  background-color: #f9b2b2;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+font {
+  color: #fa7ba8;
+}
+
+#root {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+}
