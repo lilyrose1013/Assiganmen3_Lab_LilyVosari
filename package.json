@@ -1,7 +1,8 @@
 { "name": "assiganmen3",
-"homepage": "https://github.com/lilyrose1013/Assignment3_LilyVosari_Lab.git",
+"homepage": "https://lilyrose1013.github.io/Assignment3_Lab_LilyVosari/",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "vite.config.js",
   "scripts": {
     "dev": "vite",
@@ -9,7 +10,7 @@
     "preview": "vite preview",
     "test": "echo \"Error: no test specified\" && exit 1",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "npx gh-pages -d dist --no-history --temp 'C:\tempghpages'"
   },
   "keywords": [],
   "author": "",
