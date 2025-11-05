@@ -12,8 +12,8 @@ function ImageCard(props) {
       <h1 className="pixelify-sans">{props.name || "Red Apple"}</h1>
       {imageError ? (
         <div className="pixelify-sans" style={{
-          width: '400px', 
-          height: '400px', 
+          width: '250px', 
+          height: '250px', 
           border: '2px dashed #ccc', 
           display: 'flex', 
           alignItems: 'center', 
@@ -28,7 +28,7 @@ function ImageCard(props) {
         <img 
           src={props.imageUrl || "Apple1.png"} 
           alt={props.name || "Red Apple"} 
-          style={{width: '400px', height: '400px', objectFit: 'cover'}}
+          style={{width: '250px', height: '250px', objectFit: 'cover'}}
           onError={(e) => {
             console.error("Image failed to load:", e.target.src);
             setImageError(true);

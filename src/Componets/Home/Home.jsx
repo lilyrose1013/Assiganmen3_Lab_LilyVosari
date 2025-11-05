@@ -14,15 +14,7 @@ function Home(props) {
     { id: 5, name: "Slices", imageUrl: "Slice.png" },
     { id: 6, name: "A Strawberry?", imageUrl: "Strawberry_.png" },
     { id: 7, name: "Tomato???!!! ", imageUrl: "Tomato1.png" },
-    { id: 8, name: "A Dark Red Tomato?", imageUrl: "Tomato2.png" },
-    { id: 9, name: "Fresh Apple", imageUrl: "Apple1.png" },
-    { id: 10, name: "Apple Slices", imageUrl: "Slice.png" },
-    { id: 11, name: "Bitten Apple", imageUrl: "Eaten.png" },
-    { id: 12, name: "Apple Half", imageUrl: "Half.png" },
-    { id: 13, name: "Cherry Tomato", imageUrl: "Tomato1.png" },
-    { id: 14, name: "Tomato", imageUrl: "Tomato2.png" },
-    { id: 15, name: "Strawberry ", imageUrl: "Strawberry_.png" },
-    { id: 16, name: "Plain Apple", imageUrl: "PlainApple_.png" }
+    { id: 8, name: "A Dark Red Tomato?", imageUrl: "Tomato2.png" }
   ];
 
   const [images, setImages] = useState(initialImages);
