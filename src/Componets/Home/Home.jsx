@@ -198,16 +198,94 @@ function Home(props) {
           </div>
           
           {score === 8 && (
-            <div className="pixelify-sans" style={{
-              backgroundColor: '#ff0062ff',
-              color: 'white',
-              padding: '20px',
-              borderRadius: '8px',
-              textAlign: 'center',
-              marginBottom: '20px',
-              fontSize: '20px'
+            <div className="completion-page" style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              width: '100vw',
+              height: '100vh',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: 'rgba(255, 182, 193, 0.95)',
+              zIndex: 1000,
+              textAlign: 'center'
             }}>
-              Congratulations! You found all matches!
+              <div className="pixelify-sans" style={{
+                fontSize: '48px',
+                fontWeight: 'bold',
+                color: '#ff0062ff',
+                marginBottom: '30px',
+                textShadow: '2px 2px 4px rgba(0,0,0,0.3)'
+              }}>
+              </div>
+              
+              <div className="pixelify-sans" style={{
+                fontSize: '24px',
+                color: '#333',
+                marginBottom: '30px'
+              }}>
+                You found all matches!
+              </div>
+              
+              <img 
+                src="appleGIF.gif" 
+                alt="Celebration Apple GIF" 
+                style={{
+                  width: '520px',
+                  height: '520px',
+                  objectFit: 'contain',
+                  borderRadius: '15px',
+                  border: '4px solid #FFB6C1',
+                  boxShadow: '0 8px 16px rgba(0,0,0,0.3)',
+                  marginBottom: '30px'
+                }}
+              />
+              
+              <div style={{ display: 'flex', gap: '20px' }}>
+                <button 
+                  className="pixelify-sans"
+                  onClick={startMatchingGame}
+                  style={{
+                    padding: '15px 30px',
+                    fontSize: '18px',
+                    fontWeight: 'bold',
+                    backgroundColor: '#4CAF50',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '10px',
+                    cursor: 'pointer',
+                    transition: 'background-color 0.3s ease',
+                    boxShadow: '0 4px 8px rgba(0,0,0,0.2)'
+                  }}
+                  onMouseOver={(e) => (e.target.style.backgroundColor = '#45a049')}
+                  onMouseOut={(e) => (e.target.style.backgroundColor = '#4CAF50')}
+                >
+                  Play Again
+                </button>
+                
+                <button 
+                  className="pixelify-sans"
+                  onClick={exitMatchingGame}
+                  style={{
+                    padding: '15px 30px',
+                    fontSize: '18px',
+                    fontWeight: 'bold',
+                    backgroundColor: '#ff0062ff',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '10px',
+                    cursor: 'pointer',
+                    transition: 'background-color 0.3s ease',
+                    boxShadow: '0 4px 8px rgba(0,0,0,0.2)'
+                  }}
+                  onMouseOver={(e) => (e.target.style.backgroundColor = '#e6005a')}
+                  onMouseOut={(e) => (e.target.style.backgroundColor = '#ff0062ff')}
+                >
+                  Exit Game
+                </button>
+              </div>
             </div>
           )}
         </>
