@@ -5,36 +5,43 @@ import './Home.css';
 function Home(props) {
   console.log("Home component is rendering with props:", props);
   
-  // Initial image data
+  // image data
   const initialImages = [
     { id: 1, name: "Red Apple", imageUrl: "Apple1.png" },
-    { id: 2, name: "Golden Apple", imageUrl: "Eaten.png" },
-    { id: 3, name: "Green Apple", imageUrl: "Half.png" },
-    { id: 4, name: "MineCraft Red apple", imageUrl: "PlainApple_.png" },
-    { id: 5, name: "Animal Crossing Apple", imageUrl: "Slice.png" },
-    { id: 6, name: "Eaten Red Apple", imageUrl: "Strawberry_.png" },
-    { id: 7, name: "Tomatos On a Stem", imageUrl: "Tomato1.png" },
-    { id: 8, name: "Squished Tomato?????", imageUrl: "Tomato2.png" },
+    { id: 2, name: "No Apple", imageUrl: "Eaten.png" },
+    { id: 3, name: "Half a Apple", imageUrl: "Half.png" },
+    { id: 4, name: "Plain Apple", imageUrl: "PlainApple_.png" },
+    { id: 5, name: "Slices", imageUrl: "Slice.png" },
+    { id: 6, name: "A Strawberry?", imageUrl: "Strawberry_.png" },
+    { id: 7, name: "Tomato???!!! ", imageUrl: "Tomato1.png" },
+    { id: 8, name: "A Dark Red Tomato?", imageUrl: "Tomato2.png" },
     { id: 9, name: "Fresh Apple", imageUrl: "Apple1.png" },
     { id: 10, name: "Apple Slices", imageUrl: "Slice.png" },
     { id: 11, name: "Bitten Apple", imageUrl: "Eaten.png" },
     { id: 12, name: "Apple Half", imageUrl: "Half.png" },
     { id: 13, name: "Cherry Tomato", imageUrl: "Tomato1.png" },
-    { id: 14, name: "Ripe Tomato", imageUrl: "Tomato2.png" },
-    { id: 15, name: "Strawberry Fruit", imageUrl: "Strawberry_.png" },
+    { id: 14, name: "Tomato", imageUrl: "Tomato2.png" },
+    { id: 15, name: "Strawberry ", imageUrl: "Strawberry_.png" },
     { id: 16, name: "Plain Apple", imageUrl: "PlainApple_.png" }
   ];
 
   const [images, setImages] = useState(initialImages);
+  const [isLoading, setIsLoading] = useState(false);
 
-  // Shuffle function using Fisher-Yates algorithm
-  const shuffleImages = () => {
+  // Shuffle function 
+  const shuffleImages = async () => {
+    setIsLoading(true);
+    
+    //  4 seconds
+    await new Promise(resolve => setTimeout(resolve, 4000));
+    
     const shuffled = [...images];
     for (let i = shuffled.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
     setImages(shuffled);
+    setIsLoading(false);
   };
   
   return (
@@ -43,32 +50,58 @@ function Home(props) {
       
       <button 
         onClick={shuffleImages}
+        disabled={isLoading}
         style={{
           padding: '12px 24px',
           fontSize: '16px',
           fontWeight: 'bold',
-          backgroundColor: '#4CAF50',
+          backgroundColor: isLoading ? '#cccccc' : '#4CAF50',
           color: 'white',
           border: 'none',
           borderRadius: '8px',
-          cursor: 'pointer',
+          cursor: isLoading ? 'not-allowed' : 'pointer',
           marginBottom: '20px',
           transition: 'background-color 0.3s ease'
         }}
-        onMouseOver={(e) => e.target.style.backgroundColor = '#45a049'}
-        onMouseOut={(e) => e.target.style.backgroundColor = '#4CAF50'}
+        onMouseOver={(e) => !isLoading && (e.target.style.backgroundColor = '#ff0077ff')}
+        onMouseOut={(e) => !isLoading && (e.target.style.backgroundColor = '#00ff08ff')}
       >
-        🔀 Shuffle Images
+        {isLoading ? 'Shuffling...' : 'Shuffle'}
       </button>
 
       <div className="imagecard-container" style={{padding: '10px'}}>
-        {images.map((image) => (
-          <ImageCard 
-            key={image.id}
-            name={image.name}
-            imageUrl={image.imageUrl}
-          />
-        ))}
+        {isLoading ? (
+          <div style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: 'rgba(249, 178, 178, 0.9)',
+            zIndex: 1000
+          }}>
+            <img 
+              src="Load.png" 
+              alt="Loading..." 
+              style={{
+                width: '500px',
+                height: '500px',
+                objectFit: 'contain'
+              }}
+            />
+          </div>
+        ) : (
+          images.map((image) => (
+            <ImageCard 
+              key={image.id}
+              name={image.name}
+              imageUrl={image.imageUrl}
+            />
+          ))
+        )}
       </div>
     </div>
   );
