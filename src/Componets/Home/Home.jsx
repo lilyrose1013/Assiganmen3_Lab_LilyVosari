@@ -21,7 +21,7 @@ function Home(props) {
             imageUrl="green_apple.png"
         />
         <ImageCard 
-            name="MineCraft Red apple"
+            name="MineCraft Red Apple"
             imageUrl="Red_Mine_Apple.png"
         />
         <ImageCard 
@@ -37,11 +37,11 @@ function Home(props) {
             imageUrl="Tomato_stem.jpg"
         />
         <ImageCard 
-            name="Squished Tomato?????"
+            name="Squished Tomato"
             imageUrl="tomato_squish.png"
         />
         <ImageCard 
-            name="Tomato"
+            name="Tomatoes"
             imageUrl="Tomatos.png"
         />
 
