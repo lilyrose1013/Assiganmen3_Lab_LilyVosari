@@ -26,7 +26,7 @@ function ImageCard(props) {
         </div>
       ) : (
         <img 
-          src={props.imageUrl || "/Apple_Bite.png"} 
+          src={props.imageUrl || "Apple_Bite.png"} 
           alt={props.name || "Red Apple"} 
           style={{width: '200px', height: '200px', objectFit: 'cover'}}
           onError={(e) => {

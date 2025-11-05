@@ -10,39 +10,39 @@ function Home(props) {
       <div className="imagecard-container" style={{padding: '10px'}}>
         <ImageCard 
             name="Red Apple Bite"
-            imageUrl="/Apple_Bite.png"
+            imageUrl="Apple_Bite.png"
         />
         <ImageCard 
             name="Golden Apple"
-            imageUrl="/Apple_Gold.png"
+            imageUrl="Apple_Gold.png"
         />
         <ImageCard 
             name="Green Apple"
-            imageUrl="/green_apple.png"
+            imageUrl="green_apple.png"
         />
         <ImageCard 
             name="MineCraft Red apple"
-            imageUrl="/Red_Mine_Apple.png"
+            imageUrl="Red_Mine_Apple.png"
         />
         <ImageCard 
             name="Animal Crossing Apple"
-            imageUrl="/AnimalCrossing_Apple.png"
+            imageUrl="AnimalCrossing_Apple.png"
         />
         <ImageCard 
             name="Eaten Red Apple"
-            imageUrl="/apple.png"
+            imageUrl="apple.png"
         />
         <ImageCard 
             name="Tomatos On a Stem"
-            imageUrl="/Tomato_stem.jpg"
+            imageUrl="Tomato_stem.jpg"
         />
         <ImageCard 
             name="Squished Tomato?????"
-            imageUrl="/tomato_squish.png"
+            imageUrl="tomato_squish.png"
         />
         <ImageCard 
             name="Tomato"
-            imageUrl="/Tomatos.png"
+            imageUrl="Tomatos.png"
         />
 
       </div>
