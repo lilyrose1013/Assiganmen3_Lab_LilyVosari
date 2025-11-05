@@ -89,7 +89,7 @@
 
 .popup-description {
   font-size: 12px;
-  color: hsl(309, 100%, 86%) !important;
+  color: #ff69b4 !important;
   text-align: center;
   margin: 8px 0;
   max-width: 90%;
@@ -157,7 +157,7 @@
   
   .popup-description {
     font-size: 7px;
-    color: #fe87b6 !important;
+    color: #ff69b4 !important;
   }
   
   .popup-info {
