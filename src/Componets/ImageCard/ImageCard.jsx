@@ -8,12 +8,12 @@ function ImageCard(props) {
   console.log("ImageCard component rendering with props:", props);
 
   return (
-    <div className="image-card" style={{margin: '10px', padding: '10px', display: 'inline-block'}}>
+    <div className="image-card">
       <h1>{props.name || "Red Apple"}</h1>
       {imageError ? (
         <div style={{
-          width: '300px', 
-          height: '300px', 
+          width: '400px', 
+          height: '400px', 
           border: '2px dashed #ccc', 
           display: 'flex', 
           alignItems: 'center', 
@@ -28,7 +28,7 @@ function ImageCard(props) {
         <img 
           src={props.imageUrl || "Apple1.png"} 
           alt={props.name || "Red Apple"} 
-          style={{width: '300px', height: '300px', objectFit: 'cover'}}
+          style={{width: '400px', height: '400px', objectFit: 'cover'}}
           onError={(e) => {
             console.error("Image failed to load:", e.target.src);
             setImageError(true);

@@ -40,7 +40,38 @@ function Home(props) {
             name="Squished Tomato?????"
             imageUrl="Tomato2.png"
         />
-
+        <ImageCard 
+            name="Fresh Apple"
+            imageUrl="Apple1.png"
+        />
+        <ImageCard 
+            name="Apple Slices"
+            imageUrl="Slice.png"
+        />
+        <ImageCard 
+            name="Bitten Apple"
+            imageUrl="Eaten.png"
+        />
+        <ImageCard 
+            name="Apple Half"
+            imageUrl="Half.png"
+        />
+        <ImageCard 
+            name="Cherry Tomato"
+            imageUrl="Tomato1.png"
+        />
+        <ImageCard 
+            name="Ripe Tomato"
+            imageUrl="Tomato2.png"
+        />
+        <ImageCard 
+            name="Strawberry Fruit"
+            imageUrl="Strawberry_.png"
+        />
+        <ImageCard 
+            name="Plain Apple"
+            imageUrl="PlainApple_.png"
+        />
       </div>
     </div>
   );
