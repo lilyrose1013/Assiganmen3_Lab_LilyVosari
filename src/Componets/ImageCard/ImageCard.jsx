@@ -12,8 +12,8 @@ function ImageCard(props) {
       <h1>{props.name || "Red Apple"}</h1>
       {imageError ? (
         <div style={{
-          width: '200px', 
-          height: '200px', 
+          width: '300px', 
+          height: '300px', 
           border: '2px dashed #ccc', 
           display: 'flex', 
           alignItems: 'center', 
@@ -28,7 +28,7 @@ function ImageCard(props) {
         <img 
           src={props.imageUrl || "Apple1.png"} 
           alt={props.name || "Red Apple"} 
-          style={{width: '200px', height: '200px', objectFit: 'cover'}}
+          style={{width: '300px', height: '300px', objectFit: 'cover'}}
           onError={(e) => {
             console.error("Image failed to load:", e.target.src);
             setImageError(true);
