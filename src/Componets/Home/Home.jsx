@@ -9,40 +9,36 @@ function Home(props) {
       <h1 style={{color: 'black', fontSize: '20px'}}>{props.name}!</h1>
       <div className="imagecard-container" style={{padding: '10px'}}>
         <ImageCard 
-            name="Red Apple Bite"
-            imageUrl="Apple_Bite.png"
+            name="Red Apple"
+            imageUrl="Apple1.png"
         />
         <ImageCard 
             name="Golden Apple"
-            imageUrl="Apple_Gold.png"
+            imageUrl="Eaten.png"
         />
         <ImageCard 
             name="Green Apple"
-            imageUrl="green_apple.png"
+            imageUrl="Half.png"
         />
         <ImageCard 
-            name="MineCraft Red Apple"
-            imageUrl="Red_Mine_Apple.png"
+            name="MineCraft Red apple"
+            imageUrl="PlainApple_.png"
         />
         <ImageCard 
             name="Animal Crossing Apple"
-            imageUrl="AnimalCrossing_Apple.png"
+            imageUrl="Slice.png"
         />
         <ImageCard 
             name="Eaten Red Apple"
-            imageUrl="apple.png"
+            imageUrl="Strawberry_.png"
         />
         <ImageCard 
             name="Tomatos On a Stem"
-            imageUrl="Tomato_stem.jpg"
+            imageUrl="Tomato1.png"
         />
         <ImageCard 
-            name="Squished Tomato"
-            imageUrl="tomato_squish.png"
-        />
-        <ImageCard 
-            name="Tomatoes"
-            imageUrl="Tomatos.png"
+            name="Squished Tomato?????"
+            imageUrl="Tomato2.png"
         />
 
       </div>
