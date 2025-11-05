@@ -2,10 +2,11 @@ body {
   margin: 0;
   padding: 20px;
   font-family: "Syne Mono", monospace;
-  background-color: #f9b2b2;
+  background-color: #f8c2cd;
   display: flex;
   justify-content: center;
   min-height: 100vh;
+  cursor: url('/apple.jpg'), auto;
 }
 font {
   color: #fa7ba8;
