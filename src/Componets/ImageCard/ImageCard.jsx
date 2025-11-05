@@ -9,9 +9,9 @@ function ImageCard(props) {
 
   return (
     <div className="image-card">
-      <h1>{props.name || "Red Apple"}</h1>
+      <h1 className="pixelify-sans">{props.name || "Red Apple"}</h1>
       {imageError ? (
-        <div style={{
+        <div className="pixelify-sans" style={{
           width: '400px', 
           height: '400px', 
           border: '2px dashed #ccc', 

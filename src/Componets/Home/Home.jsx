@@ -46,9 +46,10 @@ function Home(props) {
   
   return (
     <div style={{padding: '10px', margin: '10px'}}>
-      <h1 style={{color: 'black', fontSize: '20px'}}>{props.name}!</h1>
+      <h1 className="pixelify-sans" style={{color: 'black'}}>{props.name}!</h1>
       
       <button 
+        className="pixelify-sans"
         onClick={shuffleImages}
         disabled={isLoading}
         style={{
