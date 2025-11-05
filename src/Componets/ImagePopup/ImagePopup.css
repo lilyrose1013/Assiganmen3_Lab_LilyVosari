@@ -13,7 +13,7 @@
 }
 
 .popup-content {
-  background-color: rgb(255, 255, 0) !important;
+  background-color: rgb(144, 238, 144) !important;
   border-radius: 15px;
   padding: 15px;
   max-width: 75vw;
@@ -23,7 +23,7 @@
   flex-direction: column;
   align-items: center;
   animation: slideIn 0.3s ease-out;
-  border: 3px solid #ff0000 !important;
+  border: 3px solid #ff64c3 !important;
 }
 
 .popup-close {
@@ -34,7 +34,7 @@
   border: none;
   font-size: 20px;
   cursor: pointer;
-  color: #ff0000 !important;
+  color: #ff0084 !important;
   width: 30px;
   height: 30px;
   display: flex;
