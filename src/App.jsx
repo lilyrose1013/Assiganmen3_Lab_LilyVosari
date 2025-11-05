@@ -6,7 +6,9 @@ function App() {
   return (
     <div style={{padding: '20px'}}>
       <h1 className="pixelify-sans" style={{color: 'black'}}>Apples+Tomatoes</h1>
-      <p className="pixelify-sans" style={{color: 'black'}}>Use the shuffle button below to randomize the images!</p>
+      <p className="pixelify-sans" style={{color: 'black'}}>Use the shuffle button below to randomize the images!
+         <br /> Or <br /> Play A matching Game
+      </p>
       <div style={{marginTop: '20px', padding: '10px'}}>
         <Home name="Welcome to Apples+Tomatoes" />
       </div>

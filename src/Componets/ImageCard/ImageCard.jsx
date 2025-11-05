@@ -7,6 +7,19 @@ function ImageCard(props) {
   
   console.log("ImageCard component rendering with props:", props);
 
+  const handleImageClick = () => {
+    console.log("ImageCard click - description prop:", props.description);
+    if (props.onImageClick) {
+      const imageData = {
+        name: props.name || "Red Apple",
+        imageUrl: props.imageUrl || "Apple1.png",
+        description: props.description || "A red shinny Apple: Apples are members of the rose family"
+      };
+      console.log("ImageCard click - sending data:", imageData);
+      props.onImageClick(imageData);
+    }
+  };
+
   return (
     <div className="image-card">
       <h1 className="pixelify-sans">{props.name || "Red Apple"}</h1>
@@ -28,7 +41,14 @@ function ImageCard(props) {
         <img 
           src={props.imageUrl || "Apple1.png"} 
           alt={props.name || "Red Apple"} 
-          style={{width: '250px', height: '250px', objectFit: 'cover'}}
+          style={{
+            width: '250px', 
+            height: '250px', 
+            objectFit: 'cover',
+            cursor: 'pointer',
+            transition: 'transform 0.2s ease'
+          }}
+          onClick={handleImageClick}
           onError={(e) => {
             console.error("Image failed to load:", e.target.src);
             setImageError(true);
@@ -36,6 +56,8 @@ function ImageCard(props) {
           onLoad={() => {
             console.log("Image loaded successfully:", props.imageUrl);
           }}
+          onMouseOver={(e) => e.target.style.transform = 'scale(1.05)'}
+          onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
         />
       )}
     </div>

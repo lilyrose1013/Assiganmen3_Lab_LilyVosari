@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ImageCard from "../ImageCard/ImageCard";
+import ImagePopup from "../ImagePopup/ImagePopup";
 import './Home.css';
 
 function Home(props) {
@@ -7,14 +8,14 @@ function Home(props) {
   
   // image data
   const initialImages = [
-    { id: 1, name: "Red Apple", imageUrl: "Apple1.png" },
-    { id: 2, name: "No Apple", imageUrl: "Eaten.png" },
-    { id: 3, name: "Half a Apple", imageUrl: "Half.png" },
-    { id: 4, name: "Plain Apple", imageUrl: "PlainApple_.png" },
-    { id: 5, name: "Slices", imageUrl: "Slice.png" },
-    { id: 6, name: "A Strawberry?", imageUrl: "Strawberry_.png" },
-    { id: 7, name: "Tomato???!!! ", imageUrl: "Tomato1.png" },
-    { id: 8, name: "A Dark Red Tomato?", imageUrl: "Tomato2.png" }
+    { id: 1, name: "Red Apple", imageUrl: "Apple1.png", description: "A red shinny Apple: Apples are members of the rose family" },
+    { id: 2, name: "No Apple", imageUrl: "Eaten.png", description: "This apple was eaten: There are over 7,500 different kinds of apples grown in the world" },
+    { id: 3, name: "Half a Apple", imageUrl: "Half.png", description: "A apple cut in half:It takes about 36 apples to produce one gallon of apple cider " },
+    { id: 4, name: "Plain Apple", imageUrl: "PlainApple_.png", description: "Why is this apple so plain?: Apple trees can live for up to 100 years." },
+    { id: 5, name: "Slices", imageUrl: "Slice.png", description: "Sliced apple: Apple trees take 4-5 years to produce their first fruit " },
+    { id: 6, name: "A Strawberry?", imageUrl: "Strawberry_.png", description: "Why is there a strawberry on a apple website? :: Strawberries are members of the rose family." },
+    { id: 7, name: "Tomato???!!! ", imageUrl: "Tomato1.png", description: "Why is there a tomato on a apple website? :: Tomatoes are also fruits." },
+    { id: 8, name: "A Dark Red Tomato?", imageUrl: "Tomato2.png", description: "Tomato :( :There are over 10,000 varieties of tomatoes" }
   ];
 
   const [images, setImages] = useState(initialImages);
@@ -24,6 +25,22 @@ function Home(props) {
   const [flippedCards, setFlippedCards] = useState([]);
   const [matchedPairs, setMatchedPairs] = useState([]);
   const [score, setScore] = useState(0);
+  
+  // Popup state
+  const [popupOpen, setPopupOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  // Popup functions
+  const handleImageClick = (imageData) => {
+    console.log("Home handleImageClick - received data:", imageData);
+    setSelectedImage(imageData);
+    setPopupOpen(true);
+  };
+
+  const handleClosePopup = () => {
+    setPopupOpen(false);
+    setSelectedImage(null);
+  };
 
   // Shuffle function 
   const shuffleImages = async () => {
@@ -101,8 +118,14 @@ function Home(props) {
   };
   
   return (
-    <div style={{padding: '10px', margin: '10px'}}>
-      <h1 className="pixelify-sans" style={{color: 'black'}}>{props.name}!</h1>
+    <div style={{padding: isMatchingMode ? '5px' : '10px', margin: isMatchingMode ? '5px' : '10px'}}>
+      <h1 className="pixelify-sans" style={{
+        color: 'black',
+        fontSize: isMatchingMode ? '20px' : '25pt',
+        margin: isMatchingMode ? '10px 0' : '20px 0'
+      }}>
+        {props.name}!
+      </h1>
       
       {!isMatchingMode ? (
         <>
@@ -136,7 +159,7 @@ function Home(props) {
               padding: '12px 24px',
               fontSize: '16px',
               fontWeight: 'bold',
-              backgroundColor: '#FF6B35',
+              backgroundColor: '#ff0090ff',
               color: 'white',
               border: 'none',
               borderRadius: '8px',
@@ -144,8 +167,8 @@ function Home(props) {
               marginBottom: '20px',
               transition: 'background-color 0.3s ease'
             }}
-            onMouseOver={(e) => (e.target.style.backgroundColor = '#E55A2B')}
-            onMouseOut={(e) => (e.target.style.backgroundColor = '#FF6B35')}
+            onMouseOver={(e) => (e.target.style.backgroundColor = '#ff006aff')}
+            onMouseOut={(e) => (e.target.style.backgroundColor = '#ff0088ff')}
           >
             Start Matching Game
           </button>
@@ -176,7 +199,7 @@ function Home(props) {
           
           {score === 8 && (
             <div className="pixelify-sans" style={{
-              backgroundColor: '#28a745',
+              backgroundColor: '#ff0062ff',
               color: 'white',
               padding: '20px',
               borderRadius: '8px',
@@ -184,13 +207,13 @@ function Home(props) {
               marginBottom: '20px',
               fontSize: '20px'
             }}>
-              🎉 Congratulations! You found all matches! 🎉
+              Congratulations! You found all matches!
             </div>
           )}
         </>
       )}
 
-      <div className="imagecard-container" style={{padding: '10px'}}>
+      <div className={isMatchingMode ? "matching-mode-container" : "imagecard-container"} style={{padding: isMatchingMode ? '5px' : '10px'}}>
         {isLoading ? (
           <div style={{
             position: 'fixed',
@@ -201,7 +224,7 @@ function Home(props) {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            backgroundColor: 'rgba(249, 178, 178, 0.9)',
+            backgroundColor: 'rgba(255, 163, 209, 0.9)',
             zIndex: 1000
           }}>
             <img 
@@ -231,16 +254,20 @@ function Home(props) {
                   transition: 'all 0.3s ease'
                 }}
               >
-                <h1 className="pixelify-sans" style={{ visibility: isFlipped ? 'visible' : 'hidden' }}>
+                <h1 className="pixelify-sans" style={{ 
+                  visibility: isFlipped ? 'visible' : 'hidden',
+                  fontSize: '14px',
+                  margin: '5px 0'
+                }}>
                   {card.name}
                 </h1>
                 <div style={{
-                  width: '250px',
-                  height: '250px',
+                  width: isMatchingMode ? '180px' : '250px',
+                  height: isMatchingMode ? '180px' : '250px',
                   borderRadius: '8px',
                   overflow: 'hidden',
                   border: isMatched ? '3px solid #28a745' : '2px solid #ddd',
-                  backgroundColor: isFlipped ? 'transparent' : '#6c757d',
+                  backgroundColor: isFlipped ? 'transparent' : '#ff9ec7ff',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -255,7 +282,7 @@ function Home(props) {
                   ) : (
                     <div className="pixelify-sans" style={{ 
                       color: 'white', 
-                      fontSize: '24px', 
+                      fontSize: '20px', 
                       fontWeight: 'bold' 
                     }}>
                       ?
@@ -271,10 +298,21 @@ function Home(props) {
               key={image.id}
               name={image.name}
               imageUrl={image.imageUrl}
+              description={image.description}
+              onImageClick={handleImageClick}
             />
           ))
         )}
       </div>
+      
+      {/* Image Popup */}
+      <ImagePopup 
+        isOpen={popupOpen}
+        onClose={handleClosePopup}
+        imageName={selectedImage?.name}
+        imageUrl={selectedImage?.imageUrl}
+        description={selectedImage?.description}
+      />
     </div>
   );
 }
